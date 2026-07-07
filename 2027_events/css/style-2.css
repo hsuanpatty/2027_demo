@@ -369,7 +369,6 @@ body {
   gap: 18px 14px;
 }
 
-/* 關鍵修改：確保卡片高度一致且按鈕置底 */
 .day-card {
   background: #fff;
   border-radius: 14px;
@@ -392,10 +391,10 @@ body {
 
 .day-num .ps {
   font-family: "Microsoft JhengHei", sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   color: #f18686;
   background: rgba(241, 134, 134, .12);
-  padding: 3px 8px;
+  padding: 4px 9px;
   border-radius: 20px;
   margin-left: 8px;
 }
@@ -410,7 +409,7 @@ body {
 .weekend .day-num .weekday-text { color: #b35151; }
 
 .agenda-list {
-  flex-grow: 1; /* 佔據中間剩餘空間 */
+  flex-grow: 1;
   margin-bottom: 10px;
 }
 
@@ -436,7 +435,6 @@ body {
   background: #fffcf4;
   transform: translateX(3px);
 }
-
 
 /* 滑過時文字變金色 */
 .agenda-item:hover a {
@@ -469,17 +467,12 @@ body {
 .view-more-btn i {
   font-family: "Font Awesome 6 Free" !important;
   font-weight: 900 !important;
-
   color: #d1b479;
-
   font-size: 18px;
   line-height: 1;
-
   -webkit-text-stroke: 0 #d1b479;
-
   transition: transform .3s ease;
 }
-
 
 /* Chevron Right */
 .view-more-btn .fa-chevron-right::before {
@@ -487,7 +480,6 @@ body {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
 }
-
 
 /* Hover 箭頭往右 */
 .view-more-btn:hover i {
@@ -509,7 +501,7 @@ body {
   font-size: 14px;
 }
 
-/* RWD 區塊保持原樣與新增 */
+/* RWD */
 @media (max-width: 1499.98px) {
   .region-select { display: block; }
   .region-btns-desktop { display: none; }
@@ -733,7 +725,6 @@ body {
   }
 }
 
-
 @media (max-width: 1499.98px) {
   .contact-box:last-of-type {
       width: 40%;
@@ -763,7 +754,6 @@ body {
   .footer-left a {
     font-size: 12px;
   }
-
 }
 
 @media (max-width: 991.98px) {
@@ -788,7 +778,6 @@ body {
   .footer-right {
     width: 45%;
   }
-
 }
 
 @media (max-width: 768px) {
