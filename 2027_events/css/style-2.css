@@ -383,7 +383,7 @@ body {
   font-family: NotoSerif;
   font-size: 17px;
   font-weight: 700;
-  letter-spacing: .05rem;
+  letter-spacing: 0.1rem;
   display: flex;
   align-items: center;
   padding-bottom: 5px;
@@ -403,6 +403,7 @@ body {
   margin-left: auto;
   font-size: 14px;
   color: #999;
+  letter-spacing: 0.1rem;
 }
 
 .weekend .day-num { color: #f18686; }
@@ -515,13 +516,83 @@ body {
 
 @media (max-width: 1399.98px) {
   .calendar-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .region-menu {
+    padding: 10px;
+  }
 }
+
+@media (max-width: 1299.98px) {
+  .slider-padding-2 {
+    top: 64%;
+    left: 83%;
+    width: 18%;
+  }
+
+  .slider-padding-3,
+  .slider-padding-4 {
+    width: 4%;
+  }
+
+  .slider-padding .banner-title {
+    max-width: 520px;
+  }
+}
+
+
+@media (max-width: 1199.98px) {
+   .slider-padding-2 {
+    top: 65%;
+    left: 84%;
+    width: 17%;
+  }
+
+  .slider-padding .banner-title {
+    max-width: 450px;
+  }
+}
+
 
 @media (max-width: 991px) {
   .layout { flex-direction: column; }
   .calendar-grid { grid-template-columns: repeat(2, 1fr); }
   .hamburger { display: block; }
   .top-menu { display: none; position: absolute; top: 55px; right: 12px; background: #fff; padding: 10px; border-radius: 10px; }
+  .slider-padding .banner-title { max-width: 360px; }
+  .slider-padding-3,
+  .slider-padding-4 {
+    width: 5%;
+  }
+
+  .slider-padding-2 {
+    top: 64%;
+    left: 83%;
+    width: 18%;
+  }
+
+  .calendar-container {
+    width: 93%;
+  }
+
+  .top-logo img {
+    max-width: 130px;
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 899px) {
+  .slider-padding .banner-title { max-width: 340px; }
+}
+
+@media (max-width: 767px) {
+  .slider-padding .banner-title { max-width: 290px; }
+}
+
+@media (max-width: 699px) {
+  .slider-padding .banner-title { max-width: 270px; }
+}
+
+@media (max-width: 599px) {
+  .slider-padding .banner-title { max-width: 250px; }
 }
 
 @media (max-width: 575px) {
@@ -533,11 +604,11 @@ body {
   }
 
   .day-num .weekday-text {
-    font-size: 17px;
+    font-size: 16px;
   }
 
   .day-num {
-    font-size: 20px;
+    font-size: 17px;
   }
 
   .calendar-container {
@@ -587,6 +658,10 @@ body {
     padding: 7px 11px;
     font-size: 15px;
   }
+
+  .banner-title {
+    max-width: 200px;
+  }
 }
 
 /*  footer  */
@@ -613,8 +688,7 @@ body {
 }
 
 .milktea-bg{
-  background-color: var(--red5);
-  border-top: 5px solid var(--white);  
+  background-color: var(--red5);  
 }
 
 .contact-box-warp {
