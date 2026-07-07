@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>巨匠旅遊-2027新春出遊喜羊羊 ‧ 圓夢世界就匠玩</title>
+    <link rel="shortcut icon" href="https://www.artisan.com.tw/images/artisan.ico" />
+    <meta
+      name="description"
+      content="新春出遊喜羊羊，圓夢世界就匠玩！2027春節寒假團體人氣推薦，精選歐洲、日韓、東南亞等熱門旅遊路線，打造最熱鬧歡樂的春節假期。"
+    />
+
+    <meta
+      name="keywords"
+      content="2027春節旅遊,新春出遊喜羊羊,春節寒假團體旅遊,過年出國旅遊推薦,2027寒假行程,春節歐洲團,春節日本旅遊,春節韓國旅遊,東南亞過年旅遊,跨年春節行程,團體旅遊推薦,主題旅遊,過年出國,喜羊羊新春旅遊"
+    />
+
+    <!-- open graph -->
+    <meta property="og:site_name" content="新春出遊喜羊羊" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="新春出遊喜羊羊｜2027春節寒假團體人氣推薦" />
+    <meta property="og:description" content="2027春節寒假旅遊人氣推薦！跟著喜羊羊一起圓夢世界，精選歐洲、日本、韓國與東南亞熱門行程，打造最歡樂的新春假期！" />
+    <meta property="og:image" content="./images/thumb.jpg" />
+    <meta property="og:image:alt" content="新春出遊喜羊羊，2027春節寒假團體人氣推薦" />
+
+    <!-- 字體 -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato:400,700,900,400italic" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet" />
+
+    <!-- 樣式 -->
+    <link rel="stylesheet" href="./css/style-2.css" />
+    <link rel="stylesheet" href="./css/all.new.min.css" />
+
+    <!-- 效果 -->
+    <link rel="stylesheet" href="./css/animate.css" />
+  </head>
+
+  <body>
+    <button id="goTop" title="Go to top">
+      <span class="arrow"></span>
+      <span class="top-text">TOP</span>
+    </button>
+
+    <!-- Header -->
+    <div class="top-header">
+      <div class="top-header-inner">
+        <div class="top-logo">
+          <a href="https://www.artisan.com.tw/">
+            <img src="./images/logo.png" alt="巨匠旅遊" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BANNER -->
+    <div class="banner">
+      <picture>
+        <source media="(max-width: 575px)" srcset="./images/banner-575.jpg" />
+        <img src="./images/banner.jpg" class="banner-img" />
+      </picture>
+
+      <div class="banner-content">
+        <div class="slider-padding">
+          <img src="./images/mark-1.png" class="banner-title" />
+        </div>
+        <div class="slider-padding-2">
+          <img src="./images/sheep.png" class="banner-title" />
+        </div>
+        <div class="slider-padding-3">
+          <img src="./images/decorate-1.png" class="decorate-1" />
+        </div>
+        <div class="slider-padding-4">
+          <img src="./images/decorate-2.png" class="decorate-2" />
+        </div>
+      </div>
+    </div>
+
+    <div class="calendar-container">
+      <div class="region-menu">
+        <!-- 手機版選單維持不變 -->
+        <select class="region-select" onchange="setRegion(this.value)">
+          <option value="all">全部地區</option>
+          <option value="w-eu">中西歐</option>
+          <option value="e-eu">東歐</option>
+          <option value="n-eu">北歐</option>
+          <option value="s-eu">南歐</option>
+          <option value="me">中東</option>
+          <option value="jp">日本</option>
+          <option value="ca">中亞·蒙貝</option>
+          <option value="nz-au">紐西蘭·澳洲</option>
+          <option value="sa">南亞</option>
+          <option value="am">美洲</option>
+          <option value="cr">遊輪</option>
+          <option value="af">非洲</option>
+          <option value="cn">中國</option>
+          <option value="sea">東南亞</option>
+          <option value="river">河輪</option>
+        </select>
+
+        <!-- 桌機版按鈕：使用 flex-wrap 自動換行 -->
+        <div class="region-btns-desktop">
+          <button class="region-btn active" onclick="setRegion('all', this)">全部地區</button>
+          <button class="region-btn" onclick="setRegion('w-eu', this)">中西歐</button>
+          <button class="region-btn" onclick="setRegion('e-eu', this)">東歐</button>
+          <button class="region-btn" onclick="setRegion('n-eu', this)">北歐</button>
+          <button class="region-btn" onclick="setRegion('s-eu', this)">南歐</button>
+          <button class="region-btn" onclick="setRegion('me', this)">中東</button>
+          <button class="region-btn" onclick="setRegion('jp', this)">日本</button>
+          <button class="region-btn" onclick="setRegion('ca', this)">中亞·蒙貝</button>
+          <button class="region-btn" onclick="setRegion('nz-au', this)">紐澳</button>
+          <button class="region-btn" onclick="setRegion('sa', this)">南亞</button>
+          <button class="region-btn" onclick="setRegion('am', this)">美洲</button>
+          <button class="region-btn" onclick="setRegion('cr', this)">遊輪</button>
+          <button class="region-btn" onclick="setRegion('af', this)">非洲</button>
+          <button class="region-btn" onclick="setRegion('cn', this)">中國</button>
+          <button class="region-btn" onclick="setRegion('sea', this)">東南亞</button>
+          <button class="region-btn" onclick="setRegion('river', this)">河輪</button>
+        </div>
+      </div>
+
+      <nav class="status-nav">
+        <a class="active" onclick="setStatus('all', this)">全部</a>
+        <a onclick="setStatus('available', this)">可報名</a>
+        <a onclick="setStatus('forming', this)">即將成團</a>
+        <a onclick="setStatus('confirmed', this)">已成團</a>
+        <a onclick="setStatus('wait', this)">候補</a>
+        <a onclick="setStatus('full', this)">滿團</a>
+      </nav>
+
+      <div class="calendar-grid">
+        <div class="day-card" data-date="2027-01-25" data-status="available" data-region="jp">
+          <div class="day-num">01/25 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >東北(奧入瀨溪．弘前城．仙台)5天</a
+              >
+            </div>
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >東京(富士山．迪士尼．輕井澤)5天</a
+              >
+            </div>
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >荷蘭．比利時．法國．盧森堡6天</a
+              >
+            </div>
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >瑞士5天</a
+              >
+            </div>
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >奧地利．捷克．匈牙利．斯洛伐克5天</a
+              >
+            </div>
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >義大利6天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f01%2f25&RadDatePicker2=2027%2f01%2f25" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-01-26" data-status="forming" data-region="n-eu">
+          <div class="day-num">01/26 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >三井海洋郵輪10天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f01%2f26&RadDatePicker2=2027%2f01%2f26" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-01-27" data-status="confirmed" data-region="w-eu">
+          <div class="day-num">01/27 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >希臘10天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f01%2f27&RadDatePicker2=2027%2f01%2f27" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-01-28" data-status="wait" data-region="africa">
+          <div class="day-num">01/28 <span class="weekday-text"></span></div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f01%2f28&RadDatePicker2=2027%2f01%2f28" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-01-29" data-status="full" data-region="nz-au">
+          <div class="day-num">01/29 <span class="weekday-text"></span></div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f01%2f29&RadDatePicker2=2027%2f01%2f29" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-01-30" data-status="available" data-region="w-eu">
+          <div class="day-num">01/30 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >北歐單國．雙國10天</a
+              >
+            </div>
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >西班牙11天</a
+              >
+            </div>
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >澳洲．塔斯馬尼亞8天</a
+              >
+            </div>
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >約旦．以色列7天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f01%2f30&RadDatePicker2=2027%2f01%2f30" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-01-31" data-status="forming" data-region="e-eu">
+          <div class="day-num">01/31 <span class="weekday-text"></span></div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f01%2f31&RadDatePicker2=2027%2f01%2f31" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-02-01" data-status="confirmed" data-region="w-eu">
+          <div class="day-num">02/01 <span class="weekday-text"></span></div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f01&RadDatePicker2=2027%2f02%2f01" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-02-02" data-status="available" data-region="americas">
+          <div class="day-num">02/02 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >美西．國家公園13天</a
+              >
+            </div>
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >加拿大14天</a
+              >
+            </div>
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >葡萄牙10天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f02&RadDatePicker2=2027%2f02%2f02" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-02-03" data-status="forming" data-region="n-eu">
+          <div class="day-num">02/03 <span class="weekday-text"></span></div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f03&RadDatePicker2=2027%2f02%2f03" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-02-04" data-status="confirmed" data-region="w-eu">
+          <div class="day-num">02/04 <span class="ps">小年夜</span><span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >中亞（哈薩克．吉爾吉斯．塔吉克．土庫曼．烏茲別克）10天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f04&RadDatePicker2=2027%2f02%2f04" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-02-05" data-status="wait" data-region="me">
+          <div class="day-num">02/05 <span class="ps">除夕</span><span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >土耳其11天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f05%2f03&RadDatePicker2=2027%2f02%2f05" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-02-06" data-status="full" data-region="africa">
+          <div class="day-num">02/06 <span class="ps">初一</span><span class="weekday-text"></span></div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f06&RadDatePicker2=2027%2f02%2f06" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-02-07" data-status="available" data-region="jp">
+          <div class="day-num">02/07 <span class="ps">初二</span><span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >埃及5天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f07&RadDatePicker2=2027%2f02%2f07" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-02-08" data-status="forming" data-region="w-eu">
+          <div class="day-num">02/08 <span class="ps">初三</span><span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >義大利10天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f08&RadDatePicker2=2027%2f02%2f08" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-02-09" data-status="confirmed" data-region="americas">
+          <div class="day-num">02/09 <span class="ps">初四</span><span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >不丹．印度．尼泊爾10天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f09&RadDatePicker2=2027%2f02%2f09" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-02-10" data-status="wait" data-region="e-eu">
+          <div class="day-num">02/10 <span class="ps">初五</span><span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >摩洛哥12天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f10&RadDatePicker2=2027%2f02%2f10" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-02-11" data-status="full" data-region="n-eu">
+          <div class="day-num">02/11 <span class="weekday-text"></span></div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f11&RadDatePicker2=2027%2f02%2f11" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-02-12" data-status="available" data-region="africa">
+          <div class="day-num">02/12 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >西班牙11天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f12&RadDatePicker2=2027%2f02%2f12" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-02-13" data-status="forming" data-region="w-eu">
+          <div class="day-num">02/13 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >肯亞．坦尚尼亞17天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f13&RadDatePicker2=2027%2f02%2f13" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-02-14" data-status="confirmed" data-region="n-eu">
+          <div class="day-num">02/14 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >義大利10天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f14&RadDatePicker2=2027%2f02%2f14" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-02-15" data-status="wait" data-region="w-eu">
+          <div class="day-num">02/15 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >三井海洋郵輪10天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f15&RadDatePicker2=2027%2f02%2f15" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-02-16" data-status="full" data-region="e-eu">
+          <div class="day-num">02/16 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >北歐．芬蘭．挪威．冰島賞極光10天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f16&RadDatePicker2=2027%2f02%2f16" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-02-17" data-status="available" data-region="jp">
+          <div class="day-num">02/17 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >四國．山陰山陽(鳥取．廣島)15天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f17&RadDatePicker2=2027%2f02%2f17" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-02-18" data-status="forming" data-region="w-eu">
+          <div class="day-num">02/18 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >克羅埃西亞．巴爾幹半島10天</a
+              >
+            </div>
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >遇見幸福．極光12天</a
+              >
+            </div>
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >【美麗星世界】 星宇航空｜優選聯營團體8天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f18&RadDatePicker2=2027%2f02%2f18" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card" data-date="2027-02-19" data-status="confirmed" data-region="n-eu">
+          <div class="day-num">02/19 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >希臘10天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f19&RadDatePicker2=2027%2f02%2f19" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-02-20" data-status="wait" data-region="w-eu">
+          <div class="day-num">02/20 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >突尼西亞13天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f20&RadDatePicker2=2027%2f02%2f20" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+
+        <div class="day-card weekend" data-date="2027-02-21" data-status="full" data-region="w-eu">
+          <div class="day-num">02/21 <span class="weekday-text"></span></div>
+          <div class="agenda-list">
+            <div class="agenda-item">
+              <a
+                href="https://www.artisan.com.tw/TripIntroduction.aspx?TripNo=T20260514000005&Date=2026/08/03&type=JX&GropNumb=AAEJX1060803PRG2"
+                target="_blank"
+                >土耳其‧土希埃12天</a
+              >
+            </div>
+          </div>
+          <a href="https://www.artisan.com.tw/ClassifyProduct.aspx?RadDatePicker1=2027%2f02%2f21&RadDatePicker2=2027%2f02%2f21" class="view-more-btn">
+            查看更多
+            <i class="fa-solid fa-angle-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="milktea-bg">
+      <div class="foot-wrap container">
+        <div class="footer-left">
+          <h4>凱旋旅行社(股份)有限公司(交觀綜字第2133號)</h4>
+          <p>經營業務範圍：綜合旅行社經營業務範圍</p>
+          <p>代表人：項國棟｜聯絡人：劉恪宏</p>
+          <p>法律顧問：信和國際法律事務所 梁堯清律師</p>
+          <p>
+            E-MAIL：<span style="font-size: 11px; font-family: Verdana"><a href="mailto:artisantour@artisan.com.tw">ARTISANTOUR@ARTISAN.COM.TW</a></span>
+          </p>
+        </div>
+        <div class="footer-line"></div>
+        <div class="footer-right">
+          <div class="contact-box-warp">
+            <div class="contact-box">
+              <p><span class="contact-box-title">台北</span><span>TEL</span>:02-2507-5000</p>
+              <p>FAX:02-2504-6199</p>
+            </div>
+            <div class="contact-box">
+              <p><span class="contact-box-title">桃園</span><span>TEL</span>:03-3321-250</p>
+              <p>FAX:03-3321-315</p>
+            </div>
+            <div class="contact-box">
+              <p><span class="contact-box-title">新竹</span><span>TEL</span>:03-5283-088</p>
+              <p>FAX:03-5283-389</p>
+            </div>
+            <div class="contact-box">
+              <p><span class="contact-box-title">台中</span><span>TEL</span>:04-2255-0229</p>
+              <p>FAX:04-2255-1169</p>
+            </div>
+            <div class="contact-box">
+              <p><span class="contact-box-title">嘉義</span><span>TEL</span>:05-233-5335</p>
+              <p>FAX:05-233-5330</p>
+            </div>
+            <div class="contact-box">
+              <p><span class="contact-box-title">台南</span><span>TEL</span>:06-222-6627</p>
+              <p>FAX:06-222-6731</p>
+            </div>
+            <div class="contact-box">
+              <p><span class="contact-box-title">高雄</span><span>TEL</span>:07-2419-872</p>
+              <p>FAX:07-2154-690</p>
+            </div>
+            <div class="contact-box">
+              <p class="d-flex">
+                <a href="http://line.me/ti/p/%40rgm1660e" target="_blank">
+                  <img src="https://www.artisan.com.tw/images/20_QRcode.png" alt="line QR code" class="QR-code" /></a
+                ><span class="QR-txt"
+                  >→點我加入LINE@好友，<br />
+                  不定期享好康優惠!</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/owl.carousel.min.js"></script>
+    <script src="./js/wow.min.js"></script>
+    <script src="./js/wow.js"></script>
+    <!-- 選單及日歷選擇 -->
+    <script>
+      let currentStatus = "all";
+      let currentRegion = "all";
+
+      //
+      function setStatus(s, e) {
+        currentStatus = s;
+
+        document.querySelectorAll(".status-nav a").forEach((a) => a.classList.remove("active"));
+
+        e.classList.add("active");
+
+        applyFilter();
+      }
+
+      function setRegion(r, e) {
+        currentRegion = r;
+
+        document.querySelectorAll(".region-btn").forEach((b) => b.classList.remove("active"));
+
+        if (e) e.classList.add("active");
+
+        applyFilter();
+      }
+
+      // 篩選行程 + 控制查看更多
+      function applyFilter() {
+        document.querySelectorAll(".day-card").forEach((card) => {
+          const statusMatch = currentStatus === "all" || card.dataset.status === currentStatus;
+
+          const regionMatch = currentRegion === "all" || card.dataset.region === currentRegion;
+
+          let hasVisibleAgenda = false;
+
+          // 行程顯示 / 隱藏
+          card.querySelectorAll(".agenda-item").forEach((item) => {
+            if (statusMatch && regionMatch) {
+              item.style.display = "block";
+              hasVisibleAgenda = true;
+            } else {
+              item.style.display = "none";
+            }
+          });
+
+          // ==========================
+          // 沒有符合條件的行程
+          // 隱藏 查看更多 + 箭頭
+          // ==========================
+          const moreBtn = card.querySelector(".view-more-btn");
+
+          if (moreBtn) {
+            if (hasVisibleAgenda) {
+              moreBtn.style.display = "flex";
+            } else {
+              moreBtn.style.display = "none";
+            }
+          }
+        });
+      }
+
+      function toggleMenu() {
+        document.getElementById("topMenu").classList.toggle("active");
+      }
+
+      // 星期 + 初始檢查查看更多
+      window.addEventListener("DOMContentLoaded", () => {
+        const weekMap = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+
+        document.querySelectorAll(".day-card").forEach((card) => {
+          // 星期
+          const [y, m, d] = card.dataset.date.split("-").map(Number);
+          const date = new Date(y, m - 1, d);
+
+          const el = card.querySelector(".weekday-text");
+
+          if (el) {
+            el.textContent = weekMap[date.getDay()];
+          }
+        });
+
+        // 頁面載入時先執行一次篩選判斷
+        applyFilter();
+      });
+    </script>
+  </body>
+</html>
