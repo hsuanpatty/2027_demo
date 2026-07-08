@@ -288,6 +288,7 @@
 }
 .fa-angle-down:before {
 	content: "\f107";
+	font-style: normal;
 }
 .fa-angle-left:before {
 	content: "\f104";
@@ -929,6 +930,7 @@
 }
 .fa-chevron-left:before {
 	content: "\f053";
+	font-style: normal;
 }
 .fa-chevron-right:before {
 	content: "\f054";
