@@ -514,42 +514,36 @@ body {
 
 /* Checkbox 選取顏色 */
 /* 報名 */
+/* 可報名 */
 .status-filter label:nth-of-type(1):has(input:checked) {
-  background:#ff6767;
+  background:#358bbf;
   color:#fff;
 }
 
 
-/* 成行 */
+/* 即將成團 */
 .status-filter label:nth-of-type(2):has(input:checked) {
-  background:#2ecc71;
-  color:#fff;
-}
-
-
-/* 熱銷 */
-.status-filter label:nth-of-type(3):has(input:checked) {
   background:#f39c12;
   color:#fff;
 }
 
 
-/* 推薦 */
-.status-filter label:nth-of-type(4):has(input:checked) {
-  background:#3498db;
+/* 已成團 */
+.status-filter label:nth-of-type(3):has(input:checked) {
+  background:rgb(207, 62, 62);
   color:#fff;
 }
 
 
 /* 候補 */
-.status-filter label:nth-of-type(5):has(input:checked) {
-  background:#9b59b6;
+.status-filter label:nth-of-type(4):has(input:checked) {
+  background:#e74c3c;
   color:#fff;
 }
 
 
 /* 滿團 */
-.status-filter label:nth-of-type(6):has(input:checked) {
+.status-filter label:nth-of-type(5):has(input:checked) {
   background:#e74c3c;
   color:#fff;
 }
@@ -557,28 +551,8 @@ body {
 
 
 /* checkbox 顏色 */
-.status-filter input:nth-of-type(1) {
+.status-filter input {
   accent-color:#fffefe;
-}
-
-.status-filter input:nth-of-type(2) {
-  accent-color:#2ecc71;
-}
-
-.status-filter input:nth-of-type(3) {
-  accent-color:#f39c12;
-}
-
-.status-filter input:nth-of-type(4) {
-  accent-color:#3498db;
-}
-
-.status-filter input:nth-of-type(5) {
-  accent-color:#9b59b6;
-}
-
-.status-filter input:nth-of-type(6) {
-  accent-color:#e74c3c;
 }
 
 
@@ -683,14 +657,38 @@ body {
 
 
 /*  */
-.day-card[data-status="available"] .agenda-item::before { content: "報"; background: #2ecc71; color: #fff; }
-.day-card[data-status="forming"] .agenda-item::before { content: "即"; background: #f39c12; color: #fff; }
-.day-card[data-status="confirmed"] .agenda-item::before { content: "已"; background: #3498db; color: #fff; }
-.day-card[data-status="wait"] .agenda-item::before { content: "候"; background: #9b59b6; color: #fff; }
-.day-card[data-status="full"] .agenda-item::before { content: "滿"; background: #e74c3c; color: #fff; }
+.agenda-item[data-status="available"]::before {
+  content: "報";
+  background: #358bbf;
+  color: #fff;
+}
+
+.agenda-item[data-status="forming"]::before {
+  content: "即";
+  background: #f39c12;
+  color: #fff;
+}
+
+.agenda-item[data-status="confirmed"]::before {
+  content: "已";
+  background:rgb(207, 62, 62);
+  color: #fff;
+}
+
+.agenda-item[data-status="wait"]::before {
+  content: "候";
+  background: #e74c3c;
+  color: #fff;
+}
+
+.agenda-item[data-status="full"]::before {
+  content: "滿";
+  background: #e74c3c;
+  color: #fff;
+}
 
 .agenda-item::before {
-  padding: 2px 6px;
+  padding: 4px 6px;
   border-radius: 4px;
   margin-right: 6px;
   font-size: 14px;
