@@ -26,7 +26,6 @@ body {
 }
 
 /* container */
-.christmas-container,
 .container,
 .container-fluid,
 .container-lg,
@@ -41,7 +40,6 @@ body {
 }
 
 @media (min-width: 576px) {
-  .christmas-container,
   .container,
   .container-sm {
     max-width: 540px;
@@ -49,7 +47,6 @@ body {
 }
 
 @media (min-width: 768px) {
-  .christmas-container,
   .container,
   .container-md,
   .container-sm {
@@ -58,7 +55,6 @@ body {
 }
 
 @media (min-width: 992px) {
-  .christmas-container,
   .container,
   .container-lg,
   .container-md,
@@ -68,7 +64,6 @@ body {
 }
 
 @media (min-width: 1200px) {
-  .christmas-container,
   .container,
   .container-lg,
   .container-md,
@@ -273,8 +268,9 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
+
 .region-menu {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   background: rgb(255, 255, 255);
   border-radius: 14px;
   padding: 16px;
@@ -296,33 +292,6 @@ body {
   background: #e7e7e9;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-.region-btn.active {
-  background: #ff4d6d;
-  color: #fff;
-  box-shadow: 0 3px 6px rgba(255, 77, 109, 0.3);
-}
-
-.region-select {
-  display: none;
-  width: 100%;
-  padding: 10px 45px 10px 15px; /* 右側增加空間 */
-  border-radius: 8px;
-  border: 1px solid #eee;
-
-  font-size: 16px;
-  background-color: #fff;
-
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%23666666' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-
-  background-repeat: no-repeat;
-  background-position: calc(100% - 18px) center;
-  background-size: 12px 8px;
 }
 
 .status-nav {
@@ -354,20 +323,22 @@ body {
   /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); */
 }
 
-.status-nav a:nth-child(1).active { background: #ff6767; }
-.status-nav a:nth-child(2).active { background: #2ecc71; }
-.status-nav a:nth-child(3).active { background: #f39c12; }
-.status-nav a:nth-child(4).active { background: #3498db; }
-.status-nav a:nth-child(5).active { background: #9b59b6; }
-.status-nav a:nth-child(6).active { background: #e74c3c; }
-
 /* Calendar Grid */
-.layout { display: flex; gap: 14px; }
-.calendar { flex: 1; min-width: 0; }
+.layout { 
+  display: flex; 
+  gap: 14px; 
+}
+
+.calendar { 
+  flex: 1; 
+  min-width: 0; 
+}
+
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 18px 14px;
+  padding-top: 5px;
 }
 
 .day-card {
@@ -474,24 +445,243 @@ body {
   color: #d1b479;
   font-size: 18px;
   line-height: 1;
-  -webkit-text-stroke: 0 #d1b479;
   transition: transform .3s ease;
 }
 
-/* Chevron Right */
-.view-more-btn .fa-chevron-right::before {
-  content: "\f054";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-}
 
 /* Hover 箭頭往右 */
 .view-more-btn:hover i {
   transform: translateX(5px);
 }
 
-/*  */
+/* 按鈕 報名 */
 
+
+.status-filter {
+  display: none; /* JS 控制顯示 */
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 12px;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid #eee;
+}
+
+
+/* 標題 */
+
+.status-title {
+  font-size:16px;
+  font-weight:600;
+  color:#777;
+  white-space:nowrap;
+}
+
+
+/* checkbox label */
+.status-filter label {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:10px 20px;
+  border-radius:999px;
+  font-size:16px;
+  font-weight:600;
+  color:#777;
+  background:#f0f0f0;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:all .3s ease;
+}
+
+
+/* checkbox */
+.status-filter input {
+  width:16px;
+  height:16px;
+  cursor:pointer;
+}
+
+/* hover */
+.status-filter label:hover {
+  background:#f8f8f8;
+}
+
+
+/* Checkbox 選取顏色 */
+/* 報名 */
+.status-filter label:nth-of-type(1):has(input:checked) {
+  background:#ff6767;
+  color:#fff;
+}
+
+
+/* 成行 */
+.status-filter label:nth-of-type(2):has(input:checked) {
+  background:#2ecc71;
+  color:#fff;
+}
+
+
+/* 熱銷 */
+.status-filter label:nth-of-type(3):has(input:checked) {
+  background:#f39c12;
+  color:#fff;
+}
+
+
+/* 推薦 */
+.status-filter label:nth-of-type(4):has(input:checked) {
+  background:#3498db;
+  color:#fff;
+}
+
+
+/* 候補 */
+.status-filter label:nth-of-type(5):has(input:checked) {
+  background:#9b59b6;
+  color:#fff;
+}
+
+
+/* 滿團 */
+.status-filter label:nth-of-type(6):has(input:checked) {
+  background:#e74c3c;
+  color:#fff;
+}
+
+
+
+/* checkbox 顏色 */
+.status-filter input:nth-of-type(1) {
+  accent-color:#fffefe;
+}
+
+.status-filter input:nth-of-type(2) {
+  accent-color:#2ecc71;
+}
+
+.status-filter input:nth-of-type(3) {
+  accent-color:#f39c12;
+}
+
+.status-filter input:nth-of-type(4) {
+  accent-color:#3498db;
+}
+
+.status-filter input:nth-of-type(5) {
+  accent-color:#9b59b6;
+}
+
+.status-filter input:nth-of-type(6) {
+  accent-color:#e74c3c;
+}
+
+
+/* 地區複選 active */
+
+.region-btn.active {
+  background:#ff4d6d;
+  color:#fff;
+  box-shadow:  0 3px 6px rgba(255,77,109,.3);
+}
+
+
+/* 手機版 區域複選 */
+.mobile-region-select{
+  display:none;
+  position:relative;
+  overflow:visible;
+}
+
+
+.mobile-region-select i {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  color:#464646;
+  font-size:18px;
+  line-height:1;
+  transition:transform .3s ease;
+}
+
+
+
+/* 點擊展開箭頭旋轉 */
+.mobile-region-select.open i{
+  transform:rotate(180deg);
+}
+
+
+.mobile-region-title{
+  height:44px;
+  border:1px solid #ddd;
+  border-radius:6px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 15px;
+
+  cursor:pointer;
+}
+
+.mobile-region-list{
+  position:absolute;
+  top:calc(100% + 6px);
+  left:0;
+  width:100%;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:6px;
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+  display:none;
+  z-index:9999;
+  max-height:300px;
+  overflow-y:auto;
+}
+
+.mobile-region-list.show{
+  display:block;
+  animation:regionDropdown .2s ease;
+}
+
+
+
+@keyframes regionDropdown{
+  from{
+    opacity:0;
+    transform:translateY(-5px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.mobile-region-list div{
+  padding:12px 15px;
+  cursor:pointer;
+}
+
+
+.mobile-region-list div:hover{
+  background:#faf2e3;
+}
+
+
+
+.mobile-region-list div.active{
+  background:#f6e7c8;
+  color:#8a4b00;
+}
+
+
+
+/*  */
 .day-card[data-status="available"] .agenda-item::before { content: "報"; background: #2ecc71; color: #fff; }
 .day-card[data-status="forming"] .agenda-item::before { content: "即"; background: #f39c12; color: #fff; }
 .day-card[data-status="confirmed"] .agenda-item::before { content: "已"; background: #3498db; color: #fff; }
@@ -506,7 +696,6 @@ body {
 }
 
 /* RWD */
-
 @media (max-width: 1599.98px) {
   .slider-padding .banner-title {
     max-width: 650px;
@@ -514,23 +703,48 @@ body {
 }
 
 @media (max-width: 1499.98px) {
-  .region-select { display: block; }
-  .region-btns-desktop { display: none; }
-  .banner-title { max-width: 290px; }
-  .slider-padding .banner-title { max-width: 460px; }
+  .banner-title { 
+    max-width: 290px; 
+  }
+
+  .slider-padding .banner-title { 
+    max-width: 460px; 
+  }
+
   .calendar-container { 
     margin-top: 30px; 
     width: 96%;
   }
+
+  .region-btns-desktop {
+    gap: 10px 8px;
+  }
+
+  .region-btn {
+    padding: 8px 18px;
+  }
 }
 
 @media (max-width: 1399.98px) {
-  .calendar-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .calendar-grid { 
+    grid-template-columns: repeat(5, minmax(0, 1fr)); 
+  }
+
   .region-menu {
     padding: 10px;
   }
 
-  .slider-padding .banner-title { max-width: 540px; }
+  .slider-padding .banner-title { 
+    max-width: 540px; 
+  }
+
+  .region-btn {
+    font-size: 14px;
+  }
+
+  .region-btns-desktop {
+    gap: 6px;
+  }
 }
 
 @media (max-width: 1299.98px) {
@@ -547,6 +761,14 @@ body {
 
   .slider-padding .banner-title {
     max-width: 520px;
+  }
+  
+  .region-btns-desktop {
+    display: none; 
+  }
+
+  .mobile-region-select{
+    display:block;
   }
 }
 
@@ -565,11 +787,32 @@ body {
 
 
 @media (max-width: 991px) {
-  .layout { flex-direction: column; }
-  .calendar-grid { grid-template-columns: repeat(2, 1fr); }
-  .hamburger { display: block; }
-  .top-menu { display: none; position: absolute; top: 55px; right: 12px; background: #fff; padding: 10px; border-radius: 10px; }
-  .slider-padding .banner-title { max-width: 360px; }
+  .layout { 
+    flex-direction: column; 
+  }
+
+  .calendar-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+  .hamburger {
+     display: block; 
+  }
+
+  .top-menu { 
+    display: none; 
+    position: absolute; 
+    top: 55px; 
+    right: 12px; 
+    background: #fff; 
+    padding: 10px; 
+    border-radius: 10px; 
+  }
+
+  .slider-padding .banner-title { 
+    max-width: 360px; 
+  }
+
   .slider-padding-3,
   .slider-padding-4 {
     width: 5%;
@@ -592,15 +835,55 @@ body {
 }
 
 @media (max-width: 899px) {
-  .slider-padding .banner-title { max-width: 340px; }
+  .slider-padding .banner-title { 
+    max-width: 340px; 
+  }
+
+  .status-filter label { 
+    font-size: 14px;
+    padding: 10px 13px;
+  }
+
+  .status-filter {
+    gap: 6px;
+    padding: 12px 10px;
+  }
 }
 
 @media (max-width: 767px) {
-  .slider-padding .banner-title { max-width: 290px; }
+  .slider-padding .banner-title { 
+    max-width: 290px; 
+  }
 }
 
 @media (max-width: 699px) {
-  .slider-padding .banner-title { max-width: 270px; }
+  .slider-padding .banner-title { 
+    max-width: 270px; 
+  }
+
+  .status-filter {
+    gap: 6px 4px;
+    padding: 12px 8px;
+  }
+}
+
+@media (max-width: 633px) {
+  
+  .status-filter {
+    justify-content:flex-start;
+    margin:12px auto;
+  }
+
+  .status-filter label {
+    padding:7px 11px;
+    font-size:15px;
+    margin-bottom: 3px;
+  }
+
+  .status-title {
+    width:100%;
+    padding-bottom: 5px;
+  }
 }
 
 @media (max-width: 599px) {
@@ -757,13 +1040,13 @@ body {
   height: 0;
   border-style: solid;
   border-width: 6.5px 0 6.5px 6px;
-  border-color: transparent transparent transparent var(--lightblue);
+  border-color:transparent transparent transparent #fff;
   display: inline-block;
   margin-right: 5px;
 }
 
 .footer-left a {
-  color: var(--pink2);
+  color: var(--white);
   text-decoration: none;
   font-size: 14px;
 }
