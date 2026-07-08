@@ -126,6 +126,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
 
 .top-logo img {
@@ -214,7 +215,7 @@ body {
 }
 
 .slider-padding .banner-title {
-  max-width: 780px;
+  max-width: 750px;
 }
 
 .decorate-1 {
@@ -601,7 +602,7 @@ body {
   .calendar-grid { 
     grid-template-columns: 1fr; 
   }
-  
+
   .status-nav { 
     width: 90%; 
     margin: 12px auto; 
