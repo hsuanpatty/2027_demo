@@ -30,7 +30,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet" />
 
     <!-- 樣式 -->
-    <link rel="stylesheet" href="./css/style-2.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/all.new.min.css" />
 
     <!-- 效果 -->
@@ -80,24 +80,46 @@
     <div class="calendar-container wow fadeInDown" data-wow-delay="0.6s">
       <div class="region-menu">
         <!-- 手機版選單維持不變 -->
-        <select class="region-select" onchange="setRegion(this.value)">
-          <option value="all">全部地區</option>
-          <option value="w-eu">中西歐</option>
-          <option value="e-eu">東歐</option>
-          <option value="n-eu">北歐</option>
-          <option value="s-eu">南歐</option>
-          <option value="me">中東</option>
-          <option value="jp">日本</option>
-          <option value="ca">中亞·蒙貝</option>
-          <option value="nz-au">紐西蘭·澳洲</option>
-          <option value="sa">南亞</option>
-          <option value="am">美洲</option>
-          <option value="cr">遊輪</option>
-          <option value="af">非洲</option>
-          <option value="cn">中國</option>
-          <option value="sea">東南亞</option>
-          <option value="river">河輪</option>
-        </select>
+        <div class="mobile-region-select">
+          <div class="mobile-region-title" onclick="toggleMobileRegion()">
+            <span id="mobileRegionText">全部地區</span>
+            <i class="fa-solid fa-angle-down"></i>
+          </div>
+
+          <div class="mobile-region-list" id="mobileRegionList">
+            <div onclick="mobileSelectRegion('all', '全部地區', this)" class="active">全部地區</div>
+
+            <div onclick="mobileSelectRegion('w-eu', '中西歐', this)">中西歐</div>
+
+            <div onclick="mobileSelectRegion('e-eu', '東歐', this)">東歐</div>
+
+            <div onclick="mobileSelectRegion('n-eu', '北歐', this)">北歐</div>
+
+            <div onclick="mobileSelectRegion('s-eu', '南歐', this)">南歐</div>
+
+            <div onclick="mobileSelectRegion('me', '中東', this)">中東</div>
+
+            <div onclick="mobileSelectRegion('jp', '日本', this)">日本</div>
+
+            <div onclick="mobileSelectRegion('ca', '中亞·蒙貝', this)">中亞·蒙貝</div>
+
+            <div onclick="mobileSelectRegion('nz-au', '紐澳', this)">紐澳</div>
+
+            <div onclick="mobileSelectRegion('sa', '南亞', this)">南亞</div>
+
+            <div onclick="mobileSelectRegion('am', '美洲', this)">美洲</div>
+
+            <div onclick="mobileSelectRegion('cr', '遊輪', this)">遊輪</div>
+
+            <div onclick="mobileSelectRegion('af', '非洲', this)">非洲</div>
+
+            <div onclick="mobileSelectRegion('cn', '中國', this)">中國</div>
+
+            <div onclick="mobileSelectRegion('sea', '東南亞', this)">東南亞</div>
+
+            <div onclick="mobileSelectRegion('river', '河輪', this)">河輪</div>
+          </div>
+        </div>
 
         <!-- 桌機版按鈕：使用 flex-wrap 自動換行 -->
         <div class="region-btns-desktop">
@@ -120,14 +142,35 @@
         </div>
       </div>
 
-      <nav class="status-nav">
-        <a class="active" onclick="setStatus('all', this)">全部</a>
-        <a onclick="setStatus('available', this)">可報名</a>
-        <a onclick="setStatus('forming', this)">即將成團</a>
-        <a onclick="setStatus('confirmed', this)">已成團</a>
-        <a onclick="setStatus('wait', this)">候補</a>
-        <a onclick="setStatus('full', this)">滿團</a>
-      </nav>
+      <!-- 報名狀態（選地區後顯示） -->
+      <div class="status-filter" id="statusFilter">
+        <span class="status-title">報名狀態：</span>
+
+        <label>
+          <input type="checkbox" value="available" />
+          可報名
+        </label>
+
+        <label>
+          <input type="checkbox" value="forming" />
+          即將成團
+        </label>
+
+        <label>
+          <input type="checkbox" value="confirmed" />
+          已成團
+        </label>
+
+        <label>
+          <input type="checkbox" value="wait" />
+          候補
+        </label>
+
+        <label>
+          <input type="checkbox" value="full" />
+          滿團
+        </label>
+      </div>
 
       <div class="calendar-grid">
         <div class="day-card" data-date="2027-01-25" data-status="available" data-region="jp">
@@ -807,86 +850,263 @@
     <script src="./js/wow.js"></script>
     <!-- 選單及日歷選擇 -->
     <script>
-      let currentStatus = "all";
-      let currentRegion = "all";
+      let currentRegions = [];
+      let currentStatuses = [];
 
-      //
-      function setStatus(s, e) {
-        currentStatus = s;
-
-        document.querySelectorAll(".status-nav a").forEach((a) => a.classList.remove("active"));
-
-        e.classList.add("active");
-
-        applyFilter();
-      }
+      /* web 區域複選 */
 
       function setRegion(r, e) {
-        currentRegion = r;
+        if (r === "all") {
+          currentRegions = [];
 
-        document.querySelectorAll(".region-btn").forEach((b) => b.classList.remove("active"));
+          document.querySelectorAll(".region-btn").forEach((btn) => {
+            btn.classList.remove("active");
+          });
 
-        if (e) e.classList.add("active");
+          if (e) {
+            e.classList.add("active");
+          }
+        } else {
+          const allBtn = document.querySelector(".region-btn[data-region='all']");
+
+          if (allBtn) {
+            allBtn.classList.remove("active");
+          }
+
+          if (currentRegions.includes(r)) {
+            currentRegions = currentRegions.filter((item) => item !== r);
+
+            if (e) {
+              e.classList.remove("active");
+            }
+          } else {
+            currentRegions.push(r);
+
+            if (e) {
+              e.classList.add("active");
+            }
+          }
+
+          // 全部取消
+          if (currentRegions.length === 0) {
+            if (allBtn) {
+              allBtn.classList.add("active");
+            }
+          }
+        }
+
+        toggleStatusFilter();
 
         applyFilter();
       }
 
-      // 篩選行程 + 控制查看更多
-      function applyFilter() {
-        document.querySelectorAll(".day-card").forEach((card) => {
-          const statusMatch = currentStatus === "all" || card.dataset.status === currentStatus;
+      /* iphone 地區下拉 複選 */
 
-          const regionMatch = currentRegion === "all" || card.dataset.region === currentRegion;
+      let mobileRegions = [];
 
-          let hasVisibleAgenda = false;
+      function toggleMobileRegion() {
+        const box = document.querySelector(".mobile-region-select");
 
-          // 行程顯示 / 隱藏
-          card.querySelectorAll(".agenda-item").forEach((item) => {
-            if (statusMatch && regionMatch) {
-              item.style.display = "block";
-              hasVisibleAgenda = true;
-            } else {
-              item.style.display = "none";
-            }
+        const menu = document.getElementById("mobileRegionList");
+
+        if (menu) {
+          menu.classList.toggle("show");
+        }
+
+        if (box) {
+          box.classList.toggle("open");
+        }
+      }
+
+      function mobileSelectRegion(value, text, el) {
+        const title = document.getElementById("mobileRegionText");
+
+        const list = document.getElementById("mobileRegionList");
+
+        // 全部
+
+        if (value === "all") {
+          mobileRegions = [];
+
+          document.querySelectorAll(".mobile-region-list div").forEach((item) => {
+            item.classList.remove("active");
           });
 
-          // ==========================
-          // 沒有符合條件的行程
-          // 隱藏 查看更多 + 箭頭
-          // ==========================
+          el.classList.add("active");
+
+          title.innerHTML = "全部地區";
+        } else {
+          // 移除全部
+
+          const all = document.querySelector(".mobile-region-list div[data-region='all']");
+
+          if (all) {
+            all.classList.remove("active");
+          }
+
+          // 複選
+
+          if (mobileRegions.includes(value)) {
+            mobileRegions = mobileRegions.filter((item) => item !== value);
+
+            el.classList.remove("active");
+          } else {
+            mobileRegions.push(value);
+
+            el.classList.add("active");
+          }
+
+          // 沒選回全部
+
+          if (mobileRegions.length === 0) {
+            title.innerHTML = "全部地區";
+
+            if (all) {
+              all.classList.add("active");
+            }
+          } else {
+            let names = [];
+
+            document.querySelectorAll(".mobile-region-list div.active").forEach((item) => {
+              names.push(item.innerText);
+            });
+
+            title.innerHTML = names.join("、");
+          }
+        }
+
+        // 同步
+
+        currentRegions = mobileRegions;
+
+        toggleStatusFilter();
+
+        applyFilter();
+
+        // 關閉選單
+
+        if (list) {
+          list.classList.remove("show");
+        }
+
+        document.querySelector(".mobile-region-select")?.classList.remove("open");
+      }
+
+      /* 關閉手機選單 */
+
+      document.addEventListener("click", function (e) {
+        const box = document.querySelector(".mobile-region-select");
+
+        const list = document.getElementById("mobileRegionList");
+
+        if (box && !box.contains(e.target)) {
+          if (list) {
+            list.classList.remove("show");
+          }
+
+          box.classList.remove("open");
+        }
+      });
+
+      /*  報名狀態 checkbox */
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("#statusFilter input").forEach((check) => {
+          check.addEventListener("change", function () {
+            currentStatuses = Array.from(document.querySelectorAll("#statusFilter input:checked")).map((item) => item.value);
+
+            applyFilter();
+          });
+        });
+      });
+
+      /* 控制報名狀態 */
+
+      function toggleStatusFilter() {
+        const box = document.getElementById("statusFilter");
+
+        if (!box) return;
+
+        if (currentRegions.length > 0) {
+          box.style.display = "flex";
+        } else {
+          box.style.display = "none";
+
+          document.querySelectorAll("#statusFilter input").forEach((item) => {
+            item.checked = false;
+          });
+
+          currentStatuses = [];
+        }
+      }
+
+      /* 篩選 */
+
+      function applyFilter() {
+        document.querySelectorAll(".day-card").forEach((card) => {
+          const cardRegion = card.dataset.region;
+
+          const cardStatus = card.dataset.status;
+
+          const regionMatch = currentRegions.length === 0 || currentRegions.includes(cardRegion);
+
+          const statusMatch = currentStatuses.length === 0 || currentStatuses.includes(cardStatus);
+
+          const match = regionMatch && statusMatch;
+
+          card.querySelectorAll(".agenda-item").forEach((item) => {
+            item.style.display = match ? "block" : "none";
+          });
+
           const moreBtn = card.querySelector(".view-more-btn");
 
           if (moreBtn) {
-            if (hasVisibleAgenda) {
-              moreBtn.style.display = "flex";
-            } else {
-              moreBtn.style.display = "none";
-            }
+            moreBtn.style.display = match ? "flex" : "none";
           }
+
+          // ★ 讓 agenda-list flex:1 生效
+
+          card.style.display = match ? "flex" : "none";
         });
       }
 
-      function toggleMenu() {
-        document.getElementById("topMenu").classList.toggle("active");
-      }
+      /* 時間 星期幾 */
 
-      // 星期 + 初始檢查查看更多
       window.addEventListener("DOMContentLoaded", () => {
         const weekMap = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
 
         document.querySelectorAll(".day-card").forEach((card) => {
-          // 星期
-          const [y, m, d] = card.dataset.date.split("-").map(Number);
-          const date = new Date(y, m - 1, d);
+          if (card.dataset.date) {
+            const [y, m, d] = card.dataset.date.split("-").map(Number);
 
-          const el = card.querySelector(".weekday-text");
+            const date = new Date(y, m - 1, d);
 
-          if (el) {
-            el.textContent = weekMap[date.getDay()];
+            const el = card.querySelector(".weekday-text");
+
+            if (el) {
+              el.textContent = weekMap[date.getDay()];
+            }
           }
         });
 
-        // 頁面載入時先執行一次篩選判斷
+        // web全部
+
+        const allBtn = document.querySelector(".region-btn[data-region='all']");
+
+        if (allBtn) {
+          allBtn.classList.add("active");
+        }
+
+        // iphone全部
+
+        const mobileAll = document.querySelector(".mobile-region-list div[data-region='all']");
+
+        if (mobileAll) {
+          mobileAll.classList.add("active");
+        }
+
+        toggleStatusFilter();
+
         applyFilter();
       });
     </script>
