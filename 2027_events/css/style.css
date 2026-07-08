@@ -556,6 +556,123 @@ body {
   accent-color:#fffefe;
 }
 
+/* 地區複選標題 */
+.region-btns-desktop {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+}
+
+
+/* 可複選提示 */
+.region-tip {
+    font-size: 16px;
+    font-weight: 600;
+    color: #777;
+    white-space: nowrap;
+}
+
+
+.region-tip i{
+  font-size:13px;
+}
+
+/* 地區按鈕滑動 */
+.region-btn-wrapper {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  width:95%;
+  margin:0 auto;
+}
+
+
+/* 可複選文字固定 */
+.region-tip{
+  flex:none;
+  white-space:nowrap;
+}
+
+
+/* 只有按鈕區滑動 */
+.region-btn-scroll {
+
+  flex:1;
+
+  display:flex;
+
+  gap:10px;
+
+  overflow-x:auto;
+
+  white-space:nowrap;
+
+  scroll-behavior:smooth;
+
+  scrollbar-width:none;
+
+}
+
+
+.region-btn-scroll::-webkit-scrollbar{
+  display:none;
+}
+
+
+/* 按鈕不要縮小 */
+.region-btn-scroll .region-btn{
+  flex:none;
+}
+
+
+/* 箭頭 */
+.region-arrow {
+  flex:none;
+
+  width:34px;
+  height:34px;
+
+  border:1px solid #ddd;
+  border-radius:50%;
+
+  background:#fff;
+
+  color:#2c2c2c;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+  padding:0;
+
+  transition:.3s;
+}
+
+
+.region-arrow:hover {
+  color:#fff;
+  background:#7c0000;
+  border-color:#7c0000;
+}
+
+
+.region-arrow i {
+  font-family:"Font Awesome 6 Free" !important;
+  font-weight:900 !important;
+
+  font-size:16px;
+
+  line-height:1;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transform:translateX(1px); /* 右箭頭視覺置中微調 */
+}
+
 
 /* 地區複選 active */
 
@@ -567,7 +684,20 @@ body {
 
 
 /* 手機版 區域複選 */
-.mobile-region-select{
+.mobile-region-tip {
+  display:flex;
+  align-items:center;
+  gap:5px;
+
+  margin-bottom:4px;
+
+  font-size:14px;
+  font-weight:600;
+
+  color:#777;
+}
+
+.mobile-region-select {
   display:none;
   position:relative;
   overflow:visible;
@@ -583,16 +713,13 @@ body {
   transition:transform .3s ease;
 }
 
-
-
 /* 點擊展開箭頭旋轉 */
-.mobile-region-select.open i{
+.mobile-region-select.open i {
   transform:rotate(180deg);
 }
 
-
-.mobile-region-title{
-  height:44px;
+.mobile-region-title {
+  height:36px;
   border:1px solid #ddd;
   border-radius:6px;
   background:#fff;
@@ -604,7 +731,7 @@ body {
   cursor:pointer;
 }
 
-.mobile-region-list{
+.mobile-region-list {
   position:absolute;
   top:calc(100% + 6px);
   left:0;
@@ -623,8 +750,6 @@ body {
   display:block;
   animation:regionDropdown .2s ease;
 }
-
-
 
 @keyframes regionDropdown{
   from{
@@ -769,7 +894,7 @@ body {
     width: 4%;
   }
 
-  .region-btns-desktop {
+  .region-btn-wrapper {
     display: none; 
   }
 
@@ -965,7 +1090,7 @@ body {
   }
 
   .region-menu {
-    padding: 0;
+    padding: 10px;
     border: none;
   }
 
@@ -976,6 +1101,19 @@ body {
 
   .banner-title {
     max-width: 200px;
+  }
+
+  .mobile-region-title {
+    font-size: 15px;
+  }
+
+  .mobile-region-list div {
+    font-size: 15px;
+  }
+
+  .mobile-region-tip {
+    margin-bottom: 5px;
+    font-size: 15px;
   }
 }
 
