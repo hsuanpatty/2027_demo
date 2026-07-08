@@ -852,10 +852,15 @@
     <script>
       let currentRegions = [];
       let currentStatuses = [];
+      let mobileRegions = [];
 
-      /* web 區域複選 */
+      /* =========================
+   PC 區域複選
+========================= */
 
       function setRegion(r, e) {
+        const allBtn = document.querySelector(".region-btn[onclick*=\"setRegion('all'\"]");
+
         if (r === "all") {
           currentRegions = [];
 
@@ -867,12 +872,6 @@
             e.classList.add("active");
           }
         } else {
-          const allBtn = document.querySelector(".region-btn[data-region='all']");
-
-          if (allBtn) {
-            allBtn.classList.remove("active");
-          }
-
           if (currentRegions.includes(r)) {
             currentRegions = currentRegions.filter((item) => item !== r);
 
@@ -886,23 +885,37 @@
               e.classList.add("active");
             }
           }
+        }
 
-          // 全部取消
-          if (currentRegions.length === 0) {
-            if (allBtn) {
-              allBtn.classList.add("active");
-            }
+        /* =========================
+     全部地區控制
+     保留按鈕，只控制 active
+  ========================= */
+
+        if (allBtn) {
+          allBtn.style.display = "inline-block";
+
+          if (currentRegions.length > 0) {
+            // 有選區域 → 全部地區不亮
+            allBtn.classList.remove("active");
+          } else {
+            // 沒選區域 → 全部地區亮
+            allBtn.classList.add("active");
           }
         }
+
+        mobileRegions = [...currentRegions];
+
+        syncMobileRegion();
 
         toggleStatusFilter();
 
         applyFilter();
       }
 
-      /* iphone 地區下拉 複選 */
-
-      let mobileRegions = [];
+      /* =========================
+   手機選單開關
+========================= */
 
       function toggleMobileRegion() {
         const box = document.querySelector(".mobile-region-select");
@@ -918,12 +931,12 @@
         }
       }
 
+      /* =========================
+   手機選擇區域
+========================= */
+
       function mobileSelectRegion(value, text, el) {
         const title = document.getElementById("mobileRegionText");
-
-        const list = document.getElementById("mobileRegionList");
-
-        // 全部
 
         if (value === "all") {
           mobileRegions = [];
@@ -936,15 +949,11 @@
 
           title.innerHTML = "全部地區";
         } else {
-          // 移除全部
-
-          const all = document.querySelector(".mobile-region-list div[data-region='all']");
+          const all = document.querySelector(".mobile-region-list div:first-child");
 
           if (all) {
             all.classList.remove("active");
           }
-
-          // 複選
 
           if (mobileRegions.includes(value)) {
             mobileRegions = mobileRegions.filter((item) => item !== value);
@@ -956,8 +965,6 @@
             el.classList.add("active");
           }
 
-          // 沒選回全部
-
           if (mobileRegions.length === 0) {
             title.innerHTML = "全部地區";
 
@@ -968,31 +975,85 @@
             let names = [];
 
             document.querySelectorAll(".mobile-region-list div.active").forEach((item) => {
-              names.push(item.innerText);
+              if (item !== all) {
+                names.push(item.innerText);
+              }
             });
 
             title.innerHTML = names.join("、");
           }
         }
 
-        // 同步
+        currentRegions = [...mobileRegions];
 
-        currentRegions = mobileRegions;
+        syncDesktopRegion();
+
+        const allBtn = document.querySelector(".region-btn[onclick*=\"setRegion('all'\"]");
+
+        if (allBtn) {
+          allBtn.style.display = "inline-block";
+
+          if (currentRegions.length > 0) {
+            allBtn.classList.remove("active");
+          } else {
+            allBtn.classList.add("active");
+          }
+        }
 
         toggleStatusFilter();
 
         applyFilter();
 
-        // 關閉選單
-
-        if (list) {
-          list.classList.remove("show");
-        }
-
         document.querySelector(".mobile-region-select")?.classList.remove("open");
+
+        document.getElementById("mobileRegionList")?.classList.remove("show");
       }
 
-      /* 關閉手機選單 */
+      /* =========================
+   同步 PC active
+========================= */
+
+      function syncDesktopRegion() {
+        document.querySelectorAll(".region-btn").forEach((btn) => {
+          btn.classList.remove("active");
+
+          const onclick = btn.getAttribute("onclick");
+
+          if (onclick.includes("'all'")) {
+            if (currentRegions.length === 0) {
+              btn.classList.add("active");
+            }
+          } else {
+            const match = onclick.match(/setRegion\('([^']+)'/);
+
+            if (match && currentRegions.includes(match[1])) {
+              btn.classList.add("active");
+            }
+          }
+        });
+      }
+
+      /* =========================
+   同步手機 active
+========================= */
+
+      function syncMobileRegion() {
+        document.querySelectorAll(".mobile-region-list div").forEach((item) => {
+          item.classList.remove("active");
+
+          const text = item.innerText;
+
+          if (text === "全部地區") {
+            if (currentRegions.length === 0) {
+              item.classList.add("active");
+            }
+          }
+        });
+      }
+
+      /* =========================
+   點外關閉手機選單
+========================= */
 
       document.addEventListener("click", function (e) {
         const box = document.querySelector(".mobile-region-select");
@@ -1008,11 +1069,13 @@
         }
       });
 
-      /*  報名狀態 checkbox */
+      /* =========================
+   狀態 checkbox
+========================= */
 
       document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll("#statusFilter input").forEach((check) => {
-          check.addEventListener("change", function () {
+          check.addEventListener("change", () => {
             currentStatuses = Array.from(document.querySelectorAll("#statusFilter input:checked")).map((item) => item.value);
 
             applyFilter();
@@ -1020,7 +1083,9 @@
         });
       });
 
-      /* 控制報名狀態 */
+      /* =========================
+   狀態顯示
+========================= */
 
       function toggleStatusFilter() {
         const box = document.getElementById("statusFilter");
@@ -1040,37 +1105,27 @@
         }
       }
 
-      /* 篩選 */
+      /* =========================
+   篩選
+========================= */
 
       function applyFilter() {
         document.querySelectorAll(".day-card").forEach((card) => {
-          const cardRegion = card.dataset.region;
+          const region = card.dataset.region;
 
-          const cardStatus = card.dataset.status;
+          const status = card.dataset.status;
 
-          const regionMatch = currentRegions.length === 0 || currentRegions.includes(cardRegion);
+          const regionMatch = currentRegions.length === 0 || currentRegions.includes(region);
 
-          const statusMatch = currentStatuses.length === 0 || currentStatuses.includes(cardStatus);
+          const statusMatch = currentStatuses.length === 0 || currentStatuses.includes(status);
 
-          const match = regionMatch && statusMatch;
-
-          card.querySelectorAll(".agenda-item").forEach((item) => {
-            item.style.display = match ? "block" : "none";
-          });
-
-          const moreBtn = card.querySelector(".view-more-btn");
-
-          if (moreBtn) {
-            moreBtn.style.display = match ? "flex" : "none";
-          }
-
-          // ★ 讓 agenda-list flex:1 生效
-
-          card.style.display = match ? "flex" : "none";
+          card.style.display = regionMatch && statusMatch ? "flex" : "none";
         });
       }
 
-      /* 時間 星期幾 */
+      /* =========================
+   日期星期
+========================= */
 
       window.addEventListener("DOMContentLoaded", () => {
         const weekMap = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
@@ -1089,20 +1144,12 @@
           }
         });
 
-        // web全部
-
-        const allBtn = document.querySelector(".region-btn[data-region='all']");
+        const allBtn = document.querySelector(".region-btn[onclick*=\"setRegion('all'\"]");
 
         if (allBtn) {
+          allBtn.style.display = "inline-block";
+
           allBtn.classList.add("active");
-        }
-
-        // iphone全部
-
-        const mobileAll = document.querySelector(".mobile-region-list div[data-region='all']");
-
-        if (mobileAll) {
-          mobileAll.classList.add("active");
         }
 
         toggleStatusFilter();
