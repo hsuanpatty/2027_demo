@@ -81,6 +81,11 @@
       <div class="region-menu">
         <!-- 手機版選單維持不變 -->
         <div class="mobile-region-select">
+          <div class="mobile-region-tip">
+            <i class="fa-solid fa-circle-info"></i>
+            可複選：
+          </div>
+
           <div class="mobile-region-title" onclick="toggleMobileRegion()">
             <span id="mobileRegionText">全部地區</span>
             <i class="fa-solid fa-angle-down"></i>
@@ -90,55 +95,52 @@
             <div onclick="mobileSelectRegion('all', '全部地區', this)" class="active">全部地區</div>
 
             <div onclick="mobileSelectRegion('w-eu', '中西歐', this)">中西歐</div>
-
             <div onclick="mobileSelectRegion('e-eu', '東歐', this)">東歐</div>
-
             <div onclick="mobileSelectRegion('n-eu', '北歐', this)">北歐</div>
-
             <div onclick="mobileSelectRegion('s-eu', '南歐', this)">南歐</div>
-
             <div onclick="mobileSelectRegion('me', '中東', this)">中東</div>
-
             <div onclick="mobileSelectRegion('jp', '日本', this)">日本</div>
-
             <div onclick="mobileSelectRegion('ca', '中亞·蒙貝', this)">中亞·蒙貝</div>
-
             <div onclick="mobileSelectRegion('nz-au', '紐澳', this)">紐澳</div>
-
             <div onclick="mobileSelectRegion('sa', '南亞', this)">南亞</div>
-
             <div onclick="mobileSelectRegion('am', '美洲', this)">美洲</div>
-
             <div onclick="mobileSelectRegion('cr', '遊輪', this)">遊輪</div>
-
             <div onclick="mobileSelectRegion('af', '非洲', this)">非洲</div>
-
             <div onclick="mobileSelectRegion('cn', '中國', this)">中國</div>
-
             <div onclick="mobileSelectRegion('sea', '東南亞', this)">東南亞</div>
-
             <div onclick="mobileSelectRegion('river', '河輪', this)">河輪</div>
           </div>
         </div>
-
         <!-- 桌機版按鈕：使用 flex-wrap 自動換行 -->
-        <div class="region-btns-desktop">
-          <button class="region-btn active" onclick="setRegion('all', this)">全部地區</button>
-          <button class="region-btn" onclick="setRegion('w-eu', this)">中西歐</button>
-          <button class="region-btn" onclick="setRegion('e-eu', this)">東歐</button>
-          <button class="region-btn" onclick="setRegion('n-eu', this)">北歐</button>
-          <button class="region-btn" onclick="setRegion('s-eu', this)">南歐</button>
-          <button class="region-btn" onclick="setRegion('me', this)">中東</button>
-          <button class="region-btn" onclick="setRegion('jp', this)">日本</button>
-          <button class="region-btn" onclick="setRegion('ca', this)">中亞·蒙貝</button>
-          <button class="region-btn" onclick="setRegion('nz-au', this)">紐澳</button>
-          <button class="region-btn" onclick="setRegion('sa', this)">南亞</button>
-          <button class="region-btn" onclick="setRegion('am', this)">美洲</button>
-          <button class="region-btn" onclick="setRegion('cr', this)">遊輪</button>
-          <button class="region-btn" onclick="setRegion('af', this)">非洲</button>
-          <button class="region-btn" onclick="setRegion('cn', this)">中國</button>
-          <button class="region-btn" onclick="setRegion('sea', this)">東南亞</button>
-          <button class="region-btn" onclick="setRegion('river', this)">河輪</button>
+        <div class="region-btn-wrapper">
+          <span class="region-tip">可複選：</span>
+
+          <!-- <button class="region-arrow left" onclick="scrollRegionBtns(-1)">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button> -->
+
+          <div class="region-btn-scroll" id="regionBtns">
+            <button class="region-btn active" onclick="setRegion('all', this)">全部地區</button>
+            <button class="region-btn" onclick="setRegion('w-eu', this)">中西歐</button>
+            <button class="region-btn" onclick="setRegion('e-eu', this)">東歐</button>
+            <button class="region-btn" onclick="setRegion('n-eu', this)">北歐</button>
+            <button class="region-btn" onclick="setRegion('s-eu', this)">南歐</button>
+            <button class="region-btn" onclick="setRegion('me', this)">中東</button>
+            <button class="region-btn" onclick="setRegion('jp', this)">日本</button>
+            <button class="region-btn" onclick="setRegion('ca', this)">中亞·蒙貝</button>
+            <button class="region-btn" onclick="setRegion('nz-au', this)">紐澳</button>
+            <button class="region-btn" onclick="setRegion('sa', this)">南亞</button>
+            <button class="region-btn" onclick="setRegion('am', this)">美洲</button>
+            <button class="region-btn" onclick="setRegion('cr', this)">遊輪</button>
+            <button class="region-btn" onclick="setRegion('af', this)">非洲</button>
+            <button class="region-btn" onclick="setRegion('cn', this)">中國</button>
+            <button class="region-btn" onclick="setRegion('sea', this)">東南亞</button>
+            <button class="region-btn" onclick="setRegion('river', this)">河輪</button>
+          </div>
+
+          <button class="region-arrow right" onclick="scrollRegionBtns(1)">
+            <i class="fa-solid fa-angle-right"></i>
+          </button>
         </div>
       </div>
 
@@ -894,8 +896,6 @@
         }
 
         if (allBtn) {
-          allBtn.style.display = "inline-block";
-
           if (currentRegions.length > 0) {
             allBtn.classList.remove("active");
           } else {
@@ -1092,7 +1092,6 @@
 
       /* =========================
    核心篩選
-   (依 agenda-item 判斷)
 ========================= */
 
       function applyFilter() {
@@ -1110,9 +1109,7 @@
 
             const statusMatch = currentStatuses.length === 0 || currentStatuses.includes(status);
 
-            const match = regionMatch && statusMatch;
-
-            if (match) {
+            if (regionMatch && statusMatch) {
               item.style.display = "block";
 
               hasMatch = true;
@@ -1121,15 +1118,7 @@
             }
           });
 
-          /*
-日期永遠存在
-*/
-
           card.style.display = "flex";
-
-          /*
-查看更多
-*/
 
           const more = card.querySelector(".view-more-btn");
 
@@ -1163,8 +1152,6 @@
         const allBtn = document.querySelector(".region-btn[onclick*=\"setRegion('all'\"]");
 
         if (allBtn) {
-          allBtn.style.display = "inline-block";
-
           allBtn.classList.add("active");
         }
 
@@ -1172,6 +1159,33 @@
 
         applyFilter();
       });
+
+      /* =========================
+   地區按鈕右箭頭滑動
+   到底回最前面
+========================= */
+
+      function scrollRegionBtns() {
+        const box = document.getElementById("regionBtns");
+
+        if (!box) return;
+
+        const isEnd = box.scrollLeft + box.clientWidth >= box.scrollWidth - 5;
+
+        if (isEnd) {
+          box.scrollTo({
+            left: 0,
+
+            behavior: "smooth",
+          });
+        } else {
+          box.scrollBy({
+            left: 250,
+
+            behavior: "smooth",
+          });
+        }
+      }
     </script>
   </body>
 </html>
