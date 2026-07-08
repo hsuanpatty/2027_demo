@@ -529,6 +529,8 @@ body {
   .region-menu {
     padding: 10px;
   }
+
+  .slider-padding .banner-title { max-width: 540px; }
 }
 
 @media (max-width: 1299.98px) {
