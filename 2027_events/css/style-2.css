@@ -592,11 +592,16 @@ body {
 }
 
 @media (max-width: 599px) {
-  .slider-padding .banner-title { max-width: 250px; }
+  .slider-padding .banner-title { 
+    max-width: 250px; 
+  }
 }
 
 @media (max-width: 575px) {
-  .calendar-grid { grid-template-columns: 1fr; }
+  .calendar-grid { 
+    grid-template-columns: 1fr; 
+  }
+  
   .status-nav { 
     width: 90%; 
     margin: 12px auto; 
