@@ -460,14 +460,14 @@ body {
 
 
 .status-filter {
-  display: none; /* JS 控制顯示 */
+  display: none;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 10px;
   padding: 12px;
-  background: #fff;
+  background: #fbfbfb;
   border-radius: 14px;
   border: 1px solid #eee;
 }
