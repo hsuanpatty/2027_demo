@@ -506,6 +506,13 @@ body {
 }
 
 /* RWD */
+
+@media (max-width: 1599.98px) {
+  .slider-padding .banner-title {
+    max-width: 650px;
+  }
+}
+
 @media (max-width: 1499.98px) {
   .region-select { display: block; }
   .region-btns-desktop { display: none; }
