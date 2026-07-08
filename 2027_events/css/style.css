@@ -389,9 +389,10 @@ body {
 
 .agenda-item {
   font-size: 15px;
+  text-align: justify;
   color: #383838;
-  line-height: 24px;
-  padding: 6px 10px;
+  line-height: 26px;
+  padding: 6px 0;
   background: #f8f8f6;
   border-radius: 8px;
   margin-top: 8px;
@@ -544,7 +545,7 @@ body {
 
 /* 滿團 */
 .status-filter label:nth-of-type(5):has(input:checked) {
-  background:#e74c3c;
+  background: #f03742;
   color:#fff;
 }
 
@@ -683,14 +684,14 @@ body {
 
 .agenda-item[data-status="full"]::before {
   content: "滿";
-  background: #e74c3c;
+  background:  #f03742;
   color: #fff;
 }
 
 .agenda-item::before {
   padding: 4px 6px;
   border-radius: 4px;
-  margin-right: 6px;
+  margin-right: 2px;
   font-size: 14px;
 }
 
