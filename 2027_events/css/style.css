@@ -772,6 +772,26 @@ body {
   justify-content: space-between;
   padding: 0 15px;
   cursor: pointer;
+  overflow: hidden;
+}
+
+/* 地區文字 */
+#mobileRegionText {
+  flex: 1;
+  min-width: 0; /* flex 必加，否則 ellipsis 不生效 */
+  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  font-size: 15px;
+  color: #555;
+}
+
+/* 箭頭 icon 保留空間 */
+.mobile-region-title i {
+  flex-shrink: 0;
+  margin-left: 10px;
 }
 
 .mobile-region-list {
