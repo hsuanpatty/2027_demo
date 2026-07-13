@@ -351,7 +351,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  height: 500px;        /* 固定高度 */
+  height: 700px;        /* 固定高度 */
   min-height: 500px;    /* 防止被內容撐開 */
 
   overflow: hidden;
@@ -461,7 +461,13 @@ body {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2; /* 改這裡控制行數 */
+  -webkit-line-clamp: 2;
+}
+
+/* 直接抓取html data-status=""*/
+.agenda-item[data-status=""] a,
+.agenda-item:not([data-status]) a {
+  text-indent: 0;
 }
 
 /* 整個行程區 hover */
@@ -640,7 +646,7 @@ body {
   display:flex;
   align-items:center;
   gap:10px;
-  width:95%;
+  width:90%;
   margin:0 auto;
 }
 
@@ -654,21 +660,17 @@ body {
 
 /* 只有按鈕區滑動 */
 .region-btn-scroll {
-
   flex:1;
+  min-width:0;
 
   display:flex;
-
   gap:10px;
 
   overflow-x:auto;
-
   white-space:nowrap;
 
   scroll-behavior:smooth;
-
   scrollbar-width:none;
-
 }
 
 
@@ -685,49 +687,73 @@ body {
 
 /* 箭頭 */
 .region-arrow {
-  flex:none;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  background: #fff;
+  color: #2c2c2c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
 
-  width:34px;
-  height:34px;
+  opacity: 1;
+  visibility: visible;
 
-  border:1px solid #ddd;
-  border-radius:50%;
-
-  background:#fff;
-
-  color:#2c2c2c;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  cursor:pointer;
-  padding:0;
-
-  transition:.3s;
+  transition: visibility .3s ease,
+              background .6s,
+              border-color .3s;
 }
 
+
+.region-arrow.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* 隱藏狀態 */
+.region-arrow.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  width: 0;
+  flex: 0 0 0;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
 
 .region-arrow:hover {
-  color:#fff;
-  background:#7c0000;
-  border-color:#7c0000;
+  color: #fff;
+  background: #7c0000;
+  border-color: #7c0000;
+}
+
+.region-arrow i {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900 !important;
+  font-size: 19px;
+  line-height: 1;
+  display: block;
+  transform: translateY(-1px);
+
+  padding-top: 2px;
 }
 
 
-.region-arrow i {
-  font-family:"Font Awesome 6 Free" !important;
-  font-weight:900 !important;
+/* 左箭頭微調 */
+.region-arrow.left i {
+  transform:translate(-1px,-1px);
+}
 
-  font-size:16px;
 
-  line-height:1;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  transform:translateX(1px); /* 右箭頭視覺置中微調 */
+/* 右箭頭微調 */
+.region-arrow.right i {
+  transform:translate(1px,-1px);
 }
 
 
@@ -871,43 +897,52 @@ body {
   content: "報";
   background: #358bbf;
   color: #fff;
+  padding: 4px 6px;
+  height: 18px;
 }
 
 .agenda-item[data-status="forming"]::before {
   content: "即";
   background: #f39c12;
   color: #fff;
+  padding: 4px 6px;
+  height: 18px;
 }
 
 .agenda-item[data-status="confirmed"]::before {
   content: "已";
   background:rgb(207, 62, 62);
   color: #fff;
+  padding: 4px 6px;
+  height: 18px;
 }
 
 .agenda-item[data-status="wait"]::before {
   content: "候";
   background: #e74c3c;
   color: #fff;
+  padding: 4px 6px;
+  height: 18px;
 }
 
 .agenda-item[data-status="full"]::before {
   content: "滿";
   background:  #f03742;
   color: #fff;
+  padding: 4px 6px;
+  height: 18px;
 }
+
 
 .agenda-item::before {
   flex:none;
 
-  padding:4px 6px;
   border-radius:4px;
   margin-right:5px;
 
   font-size:14px;
   line-height:18px;
 
-  height:18px;
 
   position: absolute;
 }
