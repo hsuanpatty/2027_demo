@@ -321,7 +321,6 @@ body {
 .status-nav a.active {
   color: #fff;
   transform: scale(1.05);
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); */
 }
 
 /* Calendar Grid */
@@ -1035,10 +1034,6 @@ body {
     left: 84%;
     width: 17%;
   }
-
-  /* .slider-padding .banner-title {
-    max-width: 450px;
-  } */
 
   .slider-padding { 
     width: 38%;
