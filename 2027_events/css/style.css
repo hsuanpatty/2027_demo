@@ -645,7 +645,7 @@ body {
 .region-btn-wrapper {
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:10px;
   width:90%;
   margin:0 auto;
 }
@@ -664,7 +664,7 @@ body {
   min-width:0;
 
   display:flex;
-  gap:16px;
+  gap:9px;
 
   overflow-x:auto;
   white-space:nowrap;
