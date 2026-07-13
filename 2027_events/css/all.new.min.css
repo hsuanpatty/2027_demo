@@ -292,6 +292,7 @@
 }
 .fa-angle-left:before {
 	content: "\f104";
+	font-style: normal;
 }
 .fa-angle-right:before {
 	content: "\f105";
