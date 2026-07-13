@@ -664,7 +664,7 @@ body {
   min-width:0;
 
   display:flex;
-  gap:9px;
+  gap:10px;
 
   overflow-x:auto;
   white-space:nowrap;
