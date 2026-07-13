@@ -645,7 +645,7 @@ body {
 .region-btn-wrapper {
   display:flex;
   align-items:center;
-  gap:5px;
+  gap:10px;
   width:90%;
   margin:0 auto;
 }
