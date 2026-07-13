@@ -1314,8 +1314,9 @@ body {
 .footer-left h4 {
   color: var(--white);
   font-size: 1.05rem;
-  line-height: 30px;
+  /* line-height: 30px; */
   letter-spacing: 0.05rem;
+  margin-bottom: 5px;
 }
 
 .footer-left p:nth-of-type(1) {
@@ -1349,9 +1350,9 @@ body {
 
 .footer-right {
   display: flex;
-  width: 62%;
+  width: 52%;
   justify-content: space-between;
-  margin: auto;
+  margin: auto 5px;
 }
 
 .footer-right p {
@@ -1361,6 +1362,7 @@ body {
   margin-top: 0;
   align-items: center;
 }
+
 .contact-box:last-child p {
   display: flex;
 }
@@ -1374,6 +1376,16 @@ body {
 .contact-box p span {
     letter-spacing: 0.1rem;
     font-family: 微軟正黑體, Microsoft JhengHei;
+}
+
+@media (min-width: 1900px) { 
+  .footer-right {
+    width: 55%;
+    margin: auto 10px;
+  }
+  .footer-right p {
+    letter-spacing: 0.05rem;
+  }
 }
 
 @media (min-width: 1500px) { 
@@ -1417,6 +1429,12 @@ body {
   .footer-left a {
     font-size: 12px;
   }
+
+  .footer-right {
+    width: 62%;
+    margin: auto 5px;
+  }
+
 }
 
 @media (max-width: 991.98px) {
@@ -1440,6 +1458,7 @@ body {
 
   .footer-right {
     width: 45%;
+    margin: auto;
   }
 }
 
